@@ -1,0 +1,13 @@
+FROM centos:<%= @centos_release %>
+MAINTAINER Matt Cover <werekraken@gmail.com>
+
+RUN yum -y update \
+  && yum clean all
+
+RUN yum -y install \
+    java-1.<%= @openjdk_version[0] %>.0-openjdk<%--%>
+  <%- if @openjdk_version[2..4] == "jdk" -%>
+    <%--%>-devel<%--%>
+  <%- end -%>
+    <%--%> \
+  && yum clean all

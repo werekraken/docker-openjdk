@@ -1,0 +1,15 @@
+---
+  parameters:
+    - centos_release:  '7'
+      openjdk_version: '8-jre'
+    - centos_release:  '7'
+      openjdk_version: '8-jdk'
+    - centos_release:  '7'
+      openjdk_version: '7-jre'
+    - centos_release:  '7'
+      openjdk_version: '7-jdk'
+    - centos_release:  '7'
+      openjdk_version: '6-jre'
+    - centos_release:  '7'
+      openjdk_version: '6-jdk'
+  path_from: 'openjdk_version'
