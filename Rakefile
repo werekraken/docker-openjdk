@@ -4,6 +4,7 @@ require 'bundler/setup'
 require 'erb'
 require 'open3'
 require 'rubocop/rake_task'
+require 'yaml'
 
 RuboCop::RakeTask.new
 
@@ -26,8 +27,22 @@ task :erb do
   end
 end
 
+desc "Check yaml syntax"
+task :yaml do
+  FileList['*.yml'].each do |yaml|
+    puts "---> syntax:#{yaml}"
+    begin
+      YAML.load_file(yaml)
+    rescue => e
+      STDERR.puts e.message
+      exit 1
+    end
+  end
+end
+
 desc "Run erb and rubocop"
 task :test => [
   :erb,
+  :yaml,
   :rubocop,
 ]
