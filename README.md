@@ -1,5 +1,7 @@
 # openjdk
 
+[![Build Status](https://travis-ci.org/werekraken/docker-openjdk.svg?branch=master)](https://travis-ci.org/werekraken/docker-openjdk)
+
 ## Overview
 
 Dockerfiles for several flavors of openjdk.
