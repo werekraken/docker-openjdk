@@ -32,7 +32,7 @@ desc "Run dockerfile_lint"
 task :lint do
   project_root = File.expand_path(File.dirname(__FILE__))
   image = Docker::Image.create('fromImage' => 'projectatomic/dockerfile-lint')
-  FileList['*/Dockerfile'].each do |dockerfile|
+  FileList['**/Dockerfile'].each do |dockerfile|
     puts "---> lint:#{dockerfile}"
     container = Docker::Container.create({
       :Cmd        => [ 'dockerfile_lint', '-r', '.dockerfile_lint.yml', '-f', dockerfile ],
